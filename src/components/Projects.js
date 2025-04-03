@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Authentication from '../assets/Authentication.png'
+import ExpenseTracker from '../assets/ExpenseTracker.png'
+import Qtify from '../assets/Qtify.png'
 
 const Projects = () => {
   const fadeInProjects = useSpring({
@@ -18,9 +21,9 @@ const Projects = () => {
   });
 
   const projects = [
-    { id: 1, live:'https://qtify-react.vercel.app', img: './images/Qtify.png', title: 'Qtify App', desc: 'Developed a responsive song-browsing app for seamless music discovery, showcasing songs across albums and genres with an aesthetic UI.' },
-    { id: 2, live:'https://x-expense-tracker-react.vercel.app', img: './images/ExpenseTracker.png', title: 'Expense Tracker App', desc: 'Developed a responsive expense tracking app with data visualization (pie charts, bar graphs) and interactive features like notifications and modal pop-ups.' },
-    { id: 3, live:'https://authentication-frontend-black.vercel.app', img: './images/Authentication.png', title: 'Authentication App', desc: 'Designed and implemented a user authentication dashboard for signup and login. Integrated JWT authentication on the backend.' }
+    { id: 1, live:'https://qtify-react.vercel.app', img: Qtify, title: 'Qtify App', desc: 'Developed a responsive song-browsing app for seamless music discovery, showcasing songs across albums and genres with an aesthetic UI.' },
+    { id: 2, live:'https://x-expense-tracker-react.vercel.app', img: ExpenseTracker, title: 'Expense Tracker App', desc: 'Developed a responsive expense tracking app with data visualization (pie charts, bar graphs) and interactive features like notifications and modal pop-ups.' },
+    { id: 3, live:'https://authentication-frontend-black.vercel.app', img: Authentication, title: 'Authentication App', desc: 'Designed and implemented a user authentication dashboard for signup and login. Integrated JWT authentication on the backend.' }
   ];
 
   const handleMouseEnter = (project) => {
