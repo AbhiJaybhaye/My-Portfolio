@@ -14,13 +14,13 @@ function About() {
                     <div className="relative h-[100px] sm:h-[120px] md:h-auto">
                         <TypeWriterEffect
                             textStyle={{
-                                fontSize: "3rem",
+                                fontSize: "2.5rem",
                                 fontWeight: "bold",
                                 color: "#fbbf24",
                             }}
                             startDelay={100}
                             cursorColor="transparent"
-                            multiText={["Hi, I'm Abhijeet Jaybhaye..."]}
+                            multiText={["Hello, I'm Abhijeet Jaybhaye..."]}
                             multiTextLoop={true}
                             typeSpeed={100}
                             deleteSpeed={50}

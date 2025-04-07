@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import "hover.css/css/hover.css";
 
 function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const handleChange = (e) => {
     setFormData((prev) => ({
       ...prev,
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value,
     }));
   };
 
@@ -31,7 +38,7 @@ function Contact() {
         {
           from_name: formData.name,
           from_email: formData.email,
-          message: formData.message
+          message: formData.message,
         },
         "T_s639mhQHtnJdTrh"
       )
@@ -39,28 +46,26 @@ function Contact() {
         setStatus("Message sent successfully ✅");
         setFormData({ name: "", email: "", message: "" });
 
-        // ⏳ Clear status message after 3 seconds
-        setTimeout(() => {
-          setStatus("");
-        }, 3000);
+        setTimeout(() => setStatus(""), 3000);
       })
       .catch((error) => {
         console.error("Error sending email:", error);
         setStatus("Oops! Something went wrong ❌");
 
-        setTimeout(() => {
-          setStatus("");
-        }, 3000);
+        setTimeout(() => setStatus(""), 3000);
       })
       .finally(() => setLoading(false));
   };
 
   return (
-    <section id="contact" className="py-20 h-screen bg-gradient-to-br from-gray-700 via-gray-800 to-black">
-      <div className="max-w-md mx-auto px-4">
-        <h2 className="text-4xl font-bold text-white mb-6 text-center animate-fade-in">CONTACT</h2>
+    <section
+      id="contact"
+      className="py-20 h-screen bg-gradient-to-br from-gray-700 via-gray-800 to-black text-white px-4"
+    >
+      <div className="max-w-md mx-auto" data-aos="fade-up">
+        <h2 className="text-4xl font-bold mb-6 text-center">CONTACT</h2>
         <form
-          className="bg-gray-900 bg-opacity-80 rounded-lg p-6 space-y-4 shadow-lg animate-fade-in backdrop-blur-md"
+          className="bg-gray-900 bg-opacity-80 rounded-xl p-6 space-y-4 shadow-lg backdrop-blur-md"
           onSubmit={handleSubmit}
         >
           <div>
@@ -74,7 +79,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="Your name"
               required
-              className="w-full px-3 py-2 text-sm rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              className="w-full px-4 py-2 text-sm rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
             />
           </div>
           <div>
@@ -88,7 +93,7 @@ function Contact() {
               onChange={handleChange}
               placeholder="you@example.com"
               required
-              className="w-full px-3 py-2 text-sm rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              className="w-full px-4 py-2 text-sm rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
             />
           </div>
           <div>
@@ -97,19 +102,19 @@ function Contact() {
             </label>
             <textarea
               id="message"
-              rows="3"
+              rows="4"
               value={formData.message}
               onChange={handleChange}
               placeholder="Your message..."
               required
-              className="w-full px-3 py-2 text-sm rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+              className="w-full px-4 py-2 text-sm rounded-md bg-gray-800 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow"
             ></textarea>
           </div>
           <div className="text-center">
             <button
               type="submit"
               disabled={loading}
-              className={`px-5 py-2 text-sm rounded-md transition shadow-md ${
+              className={`px-5 py-2 rounded-md text-sm transition hvr-grow ${
                 loading
                   ? "bg-gray-500 cursor-not-allowed"
                   : "bg-blue-600 text-white hover:bg-blue-700"

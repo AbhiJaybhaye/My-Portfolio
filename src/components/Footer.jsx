@@ -60,7 +60,7 @@ function Footer() {
               href="https://www.crio.do/learn/portfolio/jaybhayeabhijeet333"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white hover:underline transition"
+              className="hover:text-blue-500 hover:underline transition"
             >
               Abhijeet Jaybhaye
             </a>

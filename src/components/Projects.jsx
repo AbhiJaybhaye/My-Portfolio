@@ -1,15 +1,16 @@
-import React from 'react';
-// eslint-disable-next-line no-unused-vars
-import { motion } from 'framer-motion';
-import Qtify from '../assets/Qtify.png'
-import ExpenseTracker from '../assets/ExpenseTracker.png'
-import Authentication from '../assets/Authentication.png'
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import 'hover.css/css/hover.css';
+import Qtify from '../assets/Qtify.png';
+import ExpenseTracker from '../assets/ExpenseTracker.png';
+import Authentication from '../assets/Authentication.png';
 
 const projects = [
   {
     name: 'Qtify App',
     desc: 'Developed a responsive song-browsing app for seamless music discovery, showcasing songs across albums and genres with an aesthetic UI.',
-    image: Qtify, 
+    image: Qtify,
     demoLink: 'https://qtify-react.vercel.app',
   },
   {
@@ -27,22 +28,23 @@ const projects = [
 ];
 
 const Projects = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-gray-700 via-gray-800 to-black text-white"
+      className="py-20 min-h-screen bg-gradient-to-br from-gray-700 via-gray-800 to-black text-white overflow-hidden"
     >
       <div className="max-w-7xl mx-auto px-6 text-center">
         <h2 className="text-4xl font-bold mb-12">PROJECTS</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-8">
+          {projects.map((project) => (
+            <div
               key={project.name}
-              className="bg-gray-900 bg-opacity-80 rounded-xl overflow-hidden shadow-xl transform hover:scale-105 transition duration-300 border border-gray-700"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              data-aos="zoom-in-up"
+              className="bg-gray-900 bg-opacity-80 rounded-2xl overflow-hidden shadow-lg transform transition-all hover:scale-105 hover:shadow-blue-500/50 border border-gray-700"
             >
               <img
                 src={project.image}
@@ -56,12 +58,12 @@ const Projects = () => {
                   href={project.demoLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block px-4 py-2 bg-pink-600 text-white font-semibold rounded hover:bg-pink-700 transition"
+                  className="inline-block px-4 py-2 bg-pink-600 text-white font-semibold rounded hover:bg-pink-700 transition hvr-pop"
                 >
                   Live Demo
                 </a>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
