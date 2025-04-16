@@ -25,9 +25,6 @@ function Navbar({ setActiveSection }) {
           <div className="flex items-center">
             <span className="font-bold text-xl text-white">AJ</span>
           </div>
-          <div className="absolute top-0 left-70 z-50 p-1 rounded-xl backdrop-blur-md bg-white/10 border border-pink-500/30 shadow-[0_0_15px_rgba(255,105,180,0.4)] text-pink-300 font-semibold text-sm sm:text-base transition duration-300">
-               
-          </div>
           {/* Desktop nav */}
           <div className="hidden md:flex items-center space-x-4">
             <button
