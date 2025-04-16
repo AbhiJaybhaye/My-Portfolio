@@ -62,10 +62,11 @@ function Contact() {
       id="contact"
       className="py-20 h-screen bg-gradient-to-br from-gray-700 via-gray-800 to-black text-white px-4"
     >
-      <div className="max-w-md mx-auto" data-aos="fade-up">
-        <h2 className="text-4xl font-bold mb-6 text-center">CONTACT</h2>
+      <div className="max-w-md mx-auto">
+        <h2 className="text-4xl font-bold mb-6 text-center -mt-10">CONTACT</h2>
         <form
           className="bg-gray-900 bg-opacity-80 rounded-xl p-6 space-y-4 shadow-lg backdrop-blur-md"
+          data-aos="zoom-in-up"
           onSubmit={handleSubmit}
         >
           <div>
