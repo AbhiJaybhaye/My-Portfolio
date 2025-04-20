@@ -50,7 +50,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <div className="mt-4 flex justify-center space-x-6">
-          <span className="font-semibold bg-emerald-600 rounded p-0.5">{dateTime.toLocaleDateString()}</span>
+          <span className="font-semibold bg-emerald-600 rounded p-0.5">{dateTime.toLocaleDateString('en-US')}</span>
             {socialLinks.map(({ icon, label, url }) => (
               <Tippy content={label} key={label}>
                 <motion.a

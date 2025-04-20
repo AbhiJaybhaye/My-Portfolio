@@ -66,11 +66,11 @@ function About() {
                             textShadow: "0 0 10px #BF00FF, 0 0 20px #BF00FF, 0 0 30px #BF00FF",
                         }}
                     >
-                        MERN Stack Developer
+                        Full Stack Web Developer - MERN
                     </motion.h3>
 
                     <p className="text-white font-bold max-w-2xl mx-auto text-sm sm:text-base mt-5">
-                        Innovative Full Stack Developer passionate about building dynamic,
+                        Innovative Developer, passionate about building dynamic,
                         high-performance web applications.
                         Skilled in React.js, Node.js,
                         Express.js, and MongoDB, specializing in scalable, responsive user
