@@ -25,7 +25,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#F0F4F8]">
+    <div className="relative min-h-screen min-w-screen">
       <Navbar setActiveSection={setActiveSection} />
       <main className="pt-16 pb-20 transition-opacity duration-300 relative">
         {renderSection()}
