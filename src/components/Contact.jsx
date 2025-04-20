@@ -44,8 +44,18 @@ function Contact() {
       )
       .then(() => {
         setStatus("Message sent successfully ✅");
+        const userdata = { ...formData};
         setFormData({ name: "", email: "", message: "" });
 
+        emailjs.send(
+          "service_l29korf",
+          "template_m7egfva",
+          {
+            to_email: userdata.email,   
+            to_name: userdata.name,        
+          },
+          "T_s639mhQHtnJdTrh"
+        );
         setTimeout(() => setStatus(""), 3000);
       })
       .catch((error) => {
@@ -115,11 +125,10 @@ function Contact() {
             <button
               type="submit"
               disabled={loading}
-              className={`px-5 py-2 rounded-md text-sm transition hvr-grow ${
-                loading
+              className={`px-5 py-2 rounded-md text-sm transition hvr-grow ${loading
                   ? "bg-gray-500 cursor-not-allowed"
                   : "bg-blue-600 text-white hover:bg-blue-700"
-              }`}
+                }`}
             >
               {loading ? "Sending..." : "Send"}
             </button>
